@@ -43,7 +43,6 @@ with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
         
         for i in range(total_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            
             _, c = sess.run([optimizer, cost], feed_dict = {X:batch_xs, Y:batch_ys})
             
             avg_cost += c/total_batch
